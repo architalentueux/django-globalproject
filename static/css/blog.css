@@ -1,0 +1,233 @@
+
+body {
+        font-family: Arial, sans-serif;
+        /*margin: 20px;*/
+        /*display: flex;*/
+        align-items: center; /* Pour centrer verticalement */
+       /* justify-content: center;*/ /* Pour centrer horizontalement */
+        height: 100vh; /* Assurez-vous que le conteneur parent prend toute la hauteur de la vue */
+       
+    }
+    form {
+        text-align: center;
+        align-items: center;
+         
+    }
+    label {
+        display: block;
+        margin-bottom: 40px;
+        font-family:Lobster; /* Choisir une belle police */
+         color: #8B4513; /* Marron clair */
+    }
+    select {
+        width: 220px;
+        margin-bottom:150px;
+        border-radius: 40px;
+    }
+/*essaie de changement au niveau des input*/
+.pos_subfam {
+    position: absolute;
+    left: 220px;
+    
+     
+   
+}
+.pos_genus {
+    position: absolute;
+    left: 250px;
+    margin-top: 40px;
+    margin-bottom: 740px;
+}
+/*position de la liste des tribus*/
+.pos_trib{
+    position: absolute;
+    right: 250px;
+    margin-bottom: 620px;
+}
+/*position liste continent*/
+.pos_con{
+    position: absolute;
+    right: 250px;
+    margin-top: 40px;
+   margin-bottom:740px;
+}
+
+    button {
+        padding: 10px;
+        background-color: #8B4513;;
+       /* color: #8B4513;  Marron clair */
+        margin-top: 20px;
+        color: white;
+        border: none;
+        cursor: pointer;
+ /*      margin-top: 20px;  Ajoute un espace en haut */
+      border-radius: 40px; /* Ajoute des bordures arrondies */
+      -webkit-border-radius: 20px;
+    }
+.pos_but {
+
+ border-radius: 40px;
+
+}
+
+
+   
+    h1 a {
+    color: #C25100;
+    text-align: center;
+    font-family: 'Lobster';
+    
+    }
+    header {
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 20px 5px 5px 40px;
+    margin-left: 300px;
+     }
+
+    .blue-text {
+  color: blue;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+/*  text-align: center;*/
+margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+.external-links {
+    display: flex;
+    background-color: #fff8e7;
+    padding: 5px;
+    border-radius: 5px;
+}
+.float-right {
+    float: right !important;
+}
+    footer {
+    margin-top: 405px;
+    background-color: #4CAF20; /* Couleur de fond vert */
+    color: white; /* Couleur du texte */
+    text-align: center;
+    padding: 3px;
+    }
+
+/* Style pour le message "Réservé" */
+    footer p {
+    font-size: 8px; /* Taille du texte en gros */
+    }
+/*style pour essayer de gerer le style de l'affichage de la liste des especes*/
+
+.pl-0, .px-0 {
+    padding-left: 0 !important;
+}
+.pr-0, .px-0 {
+    padding-right: 0 !important;
+}
+
+@media (min-width: 768px)
+.container {
+    max-width: 720px;
+}
+
+.card {
+    border: none;
+}
+
+.card {
+    margin-bottom: 0;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+/* code pour la barre de recherche */
+ /* Styles pour la barre de recherche */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 2px solid #8B4513; /* Marron */
+            justify-content: center; /* Ajout de cette ligne pour centrer horizontalement */
+            border-radius: 40px; /* Bords arrondis */
+            padding: 4px; /* Taille doublée */
+            width: 600px; /* Taille doublée */
+        }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            padding: 4px;
+            font-size: 16px;
+        }
+
+        .search-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 24px;
+            cursor: pointer;
+        }
+/*result of research presentation*/
+
+/* Stylisation de la liste de suggestions */
+ul.ui-autocomplete {
+    background-color: #F8F8F8;
+    position: absolute;
+    box-shadow: 0 1px 3px 0px;
+    border-radius: 3px;
+    border: 1px solid #FAFAFA;
+}
+
+/* Stylisation des éléments de suggestion individuels */
+.ui-autocomplete .ui-menu-item {
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Stylisation de l'élément sélectionné */
+.ui-autocomplete .ui-menu-item.ui-state-active {
+    background: #F0F0F0;
+}
+
+#advancedsearch {
+   /* background-color: lightgray;*/
+    padding: 10px;
+    display: none; /* Par défaut, la div est maintenant masquée */
+
+}
+#advsearchbtn {
+background-color: #007bff;
+color: #fff;
+/*border: none;*/
+border-radius: 20px;
+padding: 18px 24px;
+cursor: pointer;
+text-align: right;
+display: flex;
+justify-content: center;
+position: relative;
+margin-left: 600px;
+margin-top: -55px;
+font-size: 10px;
+left: -2px; /* Décalage vers la gauche pour la bordure intérieure */
+z-index: 1;
+/*border-radius: 20px;*/
+ }

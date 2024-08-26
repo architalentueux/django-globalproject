@@ -1,0 +1,160 @@
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
+from django.utils import timezone
+from .models import Post
+from .models import Subfamily
+from .models import Continent
+from .models import Tribe
+from .models import Genus
+from .models import Speciesv2
+from .forms import PostForm
+# importation des forms
+from .forms import SubfamilyForm
+from .forms import ContinentForm
+
+from django.http import JsonResponse
+# Create your views here.
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    subfamilies = Subfamily.objects.all()
+    continents = Continent.objects.all()
+    tribes = Tribe.objects.all()
+    genus = Genus.objects.all()
+    # try to recup selected option
+     
+    return render(request, 'globalproject/post_list.html', {'posts':posts, 'subfamilies':subfamilies, 'continents':continents, 'tribes':tribes, 'genus':genus})
+
+def subfamily_list(request):
+    subfamilies = Subfamily.objects.values_list()
+    return render(request, 'globalproject/post_list.html', {'subfamilies':subfamilies})
+
+def react_app(request):
+    return render(request, 'globalproject/base.html')
+
+#new view
+def post_new(request):
+    form = PostForm()
+    return render(request, 'globalproject/post_edit.html', {'form': form})
+
+# creation des vues issus du formulaire forms
+def post_acceuil(request):
+    subfamily = SubfamilyForm()
+    continent = ContinentForm()
+    subfamilies = Subfamily.objects.all()
+    continents = Continent.objects.all()
+    # essaie de recuperation de la variable 
+    variable_value = request.GET.get('variable')
+
+    context = {
+            'variable_value': variable_value
+        }
+    response_data = {
+            'message': 'Variable récupérée avec succès',
+            'variable': variable_value
+        }
+    return render(request, 'globalproject/post_acceuil.html', {'Continent':continent, 'Subfamily':subfamily,
+    'subfamilies':subfamilies, 'continents':continents,  'variable_value':variable_value})
+
+# creation de la vue pour renvoyer une reponse a l'utilisateur vue test variable
+def check_item(request):
+    if request.method == 'GET':
+        variable = request.GET.get('variable')
+        tribselect = request.GET.get('tribselect')
+#        tribsubfamly = Tribe.objects.filter(idsubfamily=variable)
+        try:
+#            tribes = Tribe.objects.all()
+            tribsubfamly = Tribe.objects.filter(idsubfamily=variable)
+            #filtrer les genre suivant les tribus
+            genustrib = Genus.objects.filter(idtribe=tribselect)
+            # Convertir les objets Django en dictionnaires
+            tribsubfamly = [{'idtribe': tribsubf.idtribe, 'nametribe': tribsubf.nametribe} for tribsubf in tribsubfamly]
+            item = 'parfait'
+
+            genustrib = [{'idgenus': genustr.idgenus, 'namegenus': genustr.namegenus} for genustr in genustrib]
+            return JsonResponse({'message': 'Item found', 'variable': variable, 'tribsubfamly': tribsubfamly,
+            'tribselect':tribselect, 'genustrib': genustrib},)
+        except:
+            return JsonResponse({'message': 'Item not found'}, status=404)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+# check-species
+@csrf_exempt
+def check_species(request):
+    if request.method == 'POST':
+        # essaie de selection du continent et de la subfamille
+        if 'lecontinent' in request.POST:
+            lecontinent = request.POST.get('lecontinent')
+            print(lecontinent)
+        if 'lecontinent' in request.POST and 'dropdown1' in request.POST:
+            lecontinent = request.POST.get('lecontinent')
+            dropdown1 = request.POST.get('dropdown1')
+            print(dropdown1)
+        if 'dropdown1' not in request.POST:
+            dropdown1 = None
+            print(0)
+        else:
+            print("ou se trouve le continent")
+#        conselec = request.POST.get('dropdown2')
+#        subselec = request.POST.get('subselec')
+#        con = request.POST.get('con')
+#        tribsubfamly = Tribe.objects.filter(idsubfamily=variable)
+        try:
+             # filtrer grace a l id de la subfamily/
+#            tribesubfamly = Tribe.objects.filter(idsubfamily=dropdown1).values_list('nametribe', flat=True)
+
+#            Tribu.objects.filter(family_id=family_id).values_list('name', flat=True)
+            # filtrer les especes avec les noms des tribes et des continents
+            especes = None  # Initialiser la variable especes à None
+            
+#            if dropdown1 is not None and lecontinent is not None:
+            #filtrer les genre suivant les tribus
+#                 tribessubfamily = Tribe.objects.filter(idsubfamily=dropdown1).values_list('nametribe', flat=True)
+#                 especes = Speciesv2.objects.filter(nametribe=tribessubfamily, idcontinent=lecontinent)
+#                 print("lobjet est:", especes)
+         
+            if lecontinent is not None and dropdown1 == '':
+               especes = Speciesv2.objects.filter(idcontinent=lecontinent)
+               
+               print("le contin nest pas vide")
+            if dropdown1 is not None and lecontinent is not None:
+               print("le dropdown nest pas vide")
+               tribessubfamily = Tribe.objects.filter(idsubfamily=dropdown1).values_list('nametribe', flat=True)
+               print(tribessubfamily)
+               especes = Speciesv2.objects.filter(nametribe__in=tribessubfamily, idcontinent=lecontinent)
+               print("lequerysetespeces",especes)
+             
+#            if dropdown1  and lecontinent is not None:
+#               especes = Speciesv2.objects.filter(idcontinent=lecontinent)
+
+#               print("le contin nest pas vide")
+
+#            if lecontinent is not None and dropdown1 is not None: 
+#               especes = Speciesv2.objects.filter(nametribe=tribessubfamily, idcontinent=lecontinent)
+            # ajouter dans les dictionnaires
+            #
+            #   especes = [{'idspeciesv2': esp.idspeciesv2, 'namespeciesv2': esp.namespeciesv2, 'nametribe': esp.nametribe} for esp in especes]
+         
+#            elif dropdown1 is not None and lecontinent is not None:
+            #filtrer les genre suivant les tribus
+#               tribessubfamily = Tribe.objects.filter(idsubfamily=dropdown1).values_list('nametribe', flat=True)
+#               especes = Speciesv2.objects.filter(nametribe=tribessubfamily, idcontinent=lecontinent)
+#               print("lobjet est:", especes)
+#            genustrib = Genus.objects.filter(idtribe=tribselect)
+            # Convertir les objets Django en dictionnaires
+#            tribsubfamly = [{'idtribe': tribsubf.idtribe, 'nametribe': tribsubf.nametribe} for tribsubf in tribsubfamly]
+            if especes is not None:
+               especes_data = [{'idspeciesv2': esp.idspeciesv2, 'namespeciesv2': esp.namespeciesv2, 'nametribe': esp.nametribe} for esp in especes]
+            else:
+               especes_data = []
+               item = 'aucune correspondance'
+            item = 'parfait'
+#            dropdown2 = request.POST.get('dropdown2')
+            conselec = 'echec'
+#            genustrib = [{'idgenus': genustr.idgenus, 'namegenus': genustr.namegenus} for genustr in genustrib]
+            return JsonResponse({'message': 'Item found','lecontinent': lecontinent, 'conselec': conselec, 'item': item, 'especes': especes_data},)
+        except:
+            return JsonResponse({'message': 'Item not found'}, status=404)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+

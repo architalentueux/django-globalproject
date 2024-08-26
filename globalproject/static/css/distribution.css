@@ -1,0 +1,216 @@
+
+body {
+       /* font-family: Arial, sans-serif;*/
+        /*margin: 20px;*/
+        /*display: flex;*/
+       /* align-items: center;  Pour centrer verticalement */
+       /* justify-content: center;*/ /* Pour centrer horizontalement */
+       /* height: 100vh; Assurez-vous que le conteneur parent prend toute la hauteur de la vue */
+        margin: 0;
+        padding: 0; 
+    } 
+
+    /*form {
+        text-align: center;
+        align-items: center;
+         
+    }
+    label {
+        display: block;
+        margin-bottom: 40px;
+    }
+    select {
+        width: 220px;
+        margin-bottom: 50px;
+    }
+    button {
+        padding: 10px;
+        background-color: #4CAF50;
+        margin-top: 300px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+   */
+    h1 a {
+    color: #C25100;
+   /*text-align: center;*/
+    font-family: 'Lobster';
+    margin-top: -150px;
+   position: relative; /* Définir la position relative */
+    top: -100px; /* Déplacer le titre vers le haut */
+    }
+ h1 {
+    color: #C25100;
+   /* text-align: center;*/
+    font-family: 'Lobster';
+    margin-top: -150px;
+    position: relative; /* Définir la position relative */
+    top: -100px; /* Déplacer le titre vers le haut */
+
+    }
+
+/*
+    header {
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 20px 5px 5px 40px;
+    margin-left: 300px;
+     }
+*/
+    .blue-text {
+  color: blue;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+  
+/*    body {
+    margin: 0;
+    padding: 0;
+}
+*/
+header {
+   /* background-color: #f2f2f2;*/
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px; /* Ajustez la hauteur selon vos besoins */
+    width: auto;
+/*    text-align: center;*/
+    margin-left: 840px;
+    margin-top: -2px;
+ position: relative; /* Définir la position relative */
+    top: -150px; /* Déplacer le titre vers le haut */
+
+    
+}
+
+.logo h1 {
+  
+    margin-left: 10px;
+    text-align: center;
+   
+    
+}
+
+.links img {
+   /* margin-top: 0px;*/
+    margin-left: 570px;
+    height: 50px;
+     display: flex;
+    align-items: center;
+   
+}
+.links a {
+    margin-top: 0px;
+    display: flex;
+    margin-left: 570px;
+    align-items: center; /* Alignement vertical */
+}
+
+#map {
+position: fixed;
+    bottom: 10px; /* Position verticale */
+    right: 10px; /* Position horizontale */
+    width: 600px; /* Largeur de la carte */
+    height: 380px; /* Hauteur de la carte */
+    z-index: 9999; /* Assure que la carte soit au-dessus du reste du contenu */
+    border: 1px solid #ccc; /* Bordure de la carte */
+    background-color: #fff; /* Couleur de fond de la carte */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre de la carte */
+    border-radius: 5px; /* Coins arrondis de la carte */
+
+ }
+
+#gen {
+    position: fixed;
+    right: 650px; /* Ajustez la valeur selon votre besoin */
+/*    bottom: 20px; *//* Ajustez la valeur selon votre besoin */
+    color: blue;
+    font-style: italic;
+/*    padding: 10px;  Ajoute un espace intérieur */
+/*    background-color: lightgrey;  Fond gris */
+/*    border: 1px solid grey;  Bordure grise */
+}
+
+/* Style de base pour le dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style du bouton du dropdown */
+.dropdown-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style du contenu du dropdown */
+.dropdown-content {
+  /* opacity: 0;  Le contenu est initialement transparent */
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: opacity 0.3s ease; /* Ajoute une transition de 0.3s pour l'opacité */
+}
+
+/* Style des liens dans le contenu du dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Style des liens au survol dans le contenu du dropdown */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Afficher le contenu du dropdown à côté du bouton lorsque le bouton est survolé */
+.dropdown-btn:hover + .dropdown-content {
+/*  opacity: 1;*/
+  display: block;
+  top: 100%; /* Positionner le contenu du dropdown juste en dessous du bouton */
+  left: 0; /* Aligner le contenu du dropdown avec le bouton */
+}
+/* Afficher le contenu du dropdown lorsque le bouton est survolé */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Afficher le contenu du dropdown lorsque le contenu est survolé */
+.dropdown-content:hover {
+  display: block;
+}
+/*.button-like {
+    cursor: pointer; 
+    text-decoration: none; 
+}*/
+
+    footer {
+    margin-top: 280px;
+    /* margin-top: 400px; */
+    background-color: #4CAF20; /* Couleur de fond vert */
+    color: white; /* Couleur du texte */
+    text-align: center;
+    padding: 3px;
+    }
+
+/* Style pour le message "Réservé" */
+    footer p {
+    font-size: 8px; /* Taille du texte en gros */
+    }

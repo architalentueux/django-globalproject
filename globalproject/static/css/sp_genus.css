@@ -1,0 +1,60 @@
+/*style pour essayer de gerer le style de l'affichage de la liste des especes*/
+ .blue-text {
+  color: blue;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+/*  text-align: center;*/
+margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.external-links {
+    display: flex;
+    background-color: #fff8e7;
+    padding: 5px;
+    border-radius: 5px;
+}
+.float-right {
+    float: right !important;
+}
+
+.pl-0, .px-0 {
+    padding-left: 0 !important;
+}
+.pr-0, .px-0 {
+    padding-right: 0 !important;
+}
+
+@media (min-width: 768px)
+.container {
+    max-width: 720px;
+}
+
+.card {
+    border: none;
+}
+
+.card {
+    margin-bottom: 0;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+

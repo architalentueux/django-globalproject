@@ -1,0 +1,87 @@
+{% extends 'globalproject/base_p.html' %}
+
+{% block content %}
+    
+    
+<form id="checkspecies" action="#"  method="POST" class="post-form">
+{% csrf_token %}
+    
+   <div class="pos_subfam">
+
+     <label for="dropdow">{{Subfamily.namesubfamily.label}} :</label>
+   <select id="dropdown1" name="dropdown1">
+          <option value=0>------select------</option>
+      {% for subfamily in subfamilies %}
+           <option value= {{ subfamily.idsubfamily }} >
+  
+     {{subfamily.namesubfamily}}
+        </option> 
+   
+         {% endfor %}
+     </select>
+
+      </div>  
+
+        <div id="dropdown10"></div>
+     
+     <div class="pos_trib">
+  
+        <label for="dropdown4">Tribes:</label>
+        <select id="dropdown8" name="letribe">
+            <option value="">-----select-----</option>
+            <option value="option2b">Option 2B</option>
+            <option value="option2c">Option 2C</option>
+            <option value="option44"></option>
+            <div id="dropdown9"></div>
+            <option value=0>-----select-----</option>
+        </select>
+
+     </div>
+
+        <!-- <div>{{ variable_value }}</div>-->
+      
+    <div class="pos_genus">
+        <label for="dropdown3">Genus:</label>
+        <select id="genus" name="legenus">
+            <option value=0>------select------</option>
+            <option value="option3a">Option 3A</option>
+            <option value="option3b">Option 3B</option>
+            <option value="option3c">Option 3C</option>
+            <option value="option3g">{{ variable_value }}</option>
+        </select>
+
+     </div>
+    
+    <div class="pos_con">
+      <label for="lecontinent"> {{ Continent.namecontinent.label }} :</label>
+   <select id="idcontinen" name="lecontinent">
+        {% for contine in continents %}
+        <option value={{contine.idcontinent}}>
+       {{ contine.namecontinent }}
+          </option>
+         {% endfor %}
+       </select>
+
+      </div>
+
+
+                <br />
+   
+
+<!--         <form method="POST" class="post-form">{% csrf_token %} -->
+            {{ contine.as_p }}
+            {{ subfamily.as_p }}
+       <!-- <button type="submit" class="save btn btn-default">Save</button>-->
+<br />
+<br />
+         <button type="submit" class="pos_but">Checkspecies</button>
+    </form>
+<br />
+
+ <div id="bob">{{ item }}</div>
+ <div id="lo">{{ conselec }}</div>
+    {% endblock %}
+
+
+
+

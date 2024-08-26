@@ -1,0 +1,28 @@
+{% extends 'globalproject/base.html' %}
+     {% block content %}
+<!--            {% for post in posts %}
+            <option value="option1a"><time>{{post.published_date}}</time>
+            
+           <a href="">{{post.title}}</a>
+           <p>{{post.text}}</p>
+             </option>
+            {% endfor %} 
+                                -->
+<!--import subfamily-->
+            {% for subfamily in subfamilies %}
+        <option value="option1d">
+        <p>{{subfamily.namesubfamily}}</p>
+          </option>
+         {% endfor %}
+              
+    {% endblock %}
+
+ {% block content2 %}
+            {% for continent in continents %}
+        <option value="option2d">
+        <p>{{continent.namecontinent}}</p>
+          </option>
+         {% endfor %}
+
+    {% endblock %}
+
