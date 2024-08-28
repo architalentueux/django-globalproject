@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://patipe:patipe@10.4.91.57:5432/Global_v3'
+        default=os.getenv('DATABASE_URL','postgres://patipe:patipe@10.4.91.57:5432/Global_v3')
     )
 }
 
