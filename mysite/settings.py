@@ -108,7 +108,7 @@ DATABASES = {
 #     'PORT': os.environ.get('POSTGRES_PORT', '5432'),
 #       }
 #    }
-
+PORT = os.getenv('PORT', '8000')
 
 #DATABASES = {
 #    'default': {
