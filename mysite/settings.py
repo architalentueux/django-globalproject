@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zi-$h*o$)(!#ee-ncjfe$yr$*+s^#&%ce(vy3%%)n2m$8qfwbv'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', SECRET_KEY)
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*,django-globalproject.onrender.com']
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
